@@ -1,3 +1,18 @@
+/* 移除与App.vue中样式冲突的部分 */
+/* 全局样式可以放在这里 */
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
