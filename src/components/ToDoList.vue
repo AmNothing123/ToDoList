@@ -11,8 +11,26 @@
       <button @click="addTodo">添加</button>
     </div>
     
+    <!-- 添加过滤按钮 -->
+    <div class="todo-filters">
+      <button 
+        @click="filter = 'all'" 
+        :class="{ active: filter === 'all' }"
+      >全部</button>
+      <button 
+        @click="filter = 'active'" 
+        :class="{ active: filter === 'active' }"
+      >未完成</button>
+      <button 
+        @click="filter = 'completed'" 
+        :class="{ active: filter === 'completed' }"
+      >已完成</button>
+    </div>
+
+
+     <!-- 使用过滤后的列表 -->
     <ul class="todo-list">
-      <li v-for="(todo, index) in todos" :key="index" :class="{ completed: todo.completed }">
+      <li v-for="(todo, index) in filteredTodos" :key="index" :class="{ completed: todo.completed }">
         <input type="checkbox" v-model="todo.completed">
         <span>{{ todo.text }}</span>
         <button @click="removeTodo(index)" class="delete-btn">删除</button>
@@ -32,3 +50,4 @@ export default todoListScript;
 </script>
 
 <style src="../assets/styles/todolist.css"></style>
+

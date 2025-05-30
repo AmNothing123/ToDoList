@@ -3,7 +3,8 @@ export default {
   data() {
     return {
       newTodo: '',
-      todos: []
+      todos: [],
+      filter: 'all' // 新增：过滤状态（all, active, completed）
     }
   },
   created() {
@@ -32,8 +33,21 @@ export default {
   computed: {
     completedCount() {
       return this.todos.filter(todo => todo.completed).length
-    }
+    },
+    filteredTodos() {
+      // 根据过滤条件返回不同的待办事项列表
+      switch(this.filter) {
+        case 'active':
+          return this.todos.filter(todo => !todo.completed);
+        case 'completed':
+          return this.todos.filter(todo => todo.completed);
+        default:
+          return this.todos;
+      }
+    },
+  
   },
+  
   methods: {
     addTodo() {
       if (this.newTodo.trim()) {

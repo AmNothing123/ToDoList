@@ -155,3 +155,33 @@ h2::after {
   background: linear-gradient(to right, #546e7a, #78909c);
   transform: scale(1.05);
 }
+
+.todo-filters {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.todo-filters button {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.todo-filters button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.todo-filters button:hover {
+  background-color: #e9ecef;
+}
+
+.todo-filters button.active:hover {
+  background-color: #0069d9;
+}
