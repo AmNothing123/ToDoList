@@ -30,7 +30,7 @@
 
      <!-- 使用过滤后的列表 -->
     <ul class="todo-list">
-      <li v-for="(todo, index) in filteredTodos" :key="index" :class="{ completed: todo.completed }">
+      <li v-for="(todo, index) in filteredTodos" :key="todo.id" :class="{ completed: todo.completed }">
         <input type="checkbox" v-model="todo.completed">
         <span>{{ todo.text }}</span>
         <button @click="removeTodo(index)" class="delete-btn">删除</button>
